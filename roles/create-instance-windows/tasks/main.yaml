@@ -26,7 +26,7 @@
         cidr_ip: 0.0.0.0/0
   - name: run instance
     ec2:
-     key_name: aulautil
+     key_name: ansible
      instance_type: t2.micro
      image: ami-bd3ba0aa
      wait: yes

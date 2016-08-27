@@ -1,0 +1,19 @@
+---
+- hosts: tag_Name_aulautil_ansible 
+  user: ec2-user
+  become_user: root 
+  become: yes
+  tasks:
+  #- name: yum update 
+  #  yum: name=* state=latest
+  #- name: install epel 
+  #  yum: pkg=epel-release state=latest
+  - rpm_key: state=present key=https://www.mongodb.org/static/pgp/server-3.2.asc
+  - name: add mongo repository 
+    template: src=mongodb/mongodb-org-3.0.repo dest=/etc/yum.repos.d/mongodb-org-3.0.repo
+  - name: install mongodb-org 
+    yum: pkg=mongodb-org state=latest
+#  - name: configuration mongod
+#    template: src=mongod/mongod.conf dest=/etc/mongod.conf
+  - name: ensure mongo is running (and enable it at boot)
+    service: name=mongod state=started enabled=yes

@@ -13,7 +13,7 @@
     template: src=mongodb/mongodb-org-3.0.repo dest=/etc/yum.repos.d/mongodb-org-3.0.repo
   - name: install mongodb-org 
     yum: pkg=mongodb-org state=latest
-#  - name: configuration mongod
-#    template: src=mongod/mongod.conf dest=/etc/mongod.conf
+  - name: configuration mongod
+    template: src=mongod/mongod.conf.j2 dest=/etc/mongod.conf
   - name: ensure mongo is running (and enable it at boot)
     service: name=mongod state=started enabled=yes

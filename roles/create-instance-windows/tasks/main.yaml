@@ -1,6 +1,6 @@
   - name: ec2 group aulautil
     ec2_group:
-     name: aulautil-win	
+     name: aulautil-win
      description: Prod:Infraestructura
      #vpc_id: vpc-id
      region: us-east-1

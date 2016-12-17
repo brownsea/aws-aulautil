@@ -28,7 +28,7 @@
     ec2:
      key_name: aulautil
      instance_type: t2.micro
-     image: ami-bd3ba0aa
+     image: ami-fc97a7eb
      wait: yes
      group: aulautil-win
      wait_timeout: 500
